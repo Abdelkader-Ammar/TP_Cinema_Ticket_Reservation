@@ -1,0 +1,28 @@
+@startuml
+left to right direction
+
+actor Client
+actor Administrateur
+actor "Service de paiement" as Payment
+
+rectangle "Système de réservation de cinéma" {
+
+    usecase "Consulter les films" as UC1
+    usecase "Consulter les séances" as UC2
+    usecase "Réserver une place" as UC3
+    usecase "Annuler une réservation" as UC4
+    usecase "Effectuer le paiement" as UC5
+    usecase "Gérer les séances" as UC6
+}
+
+Client --> UC1
+Client --> UC2
+Client --> UC3
+Client --> UC4
+
+UC3 ..> UC5 : <<include>>
+
+Administrateur --> UC6
+Payment --> UC5
+
+@enduml
