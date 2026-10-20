@@ -1,6 +1,6 @@
-# Enoncé — TP Cinéma (Inception / Étude préliminaire)
+# TP Résérvation de tickets pour cinema
 
-## 1. Vision (5 lignes)
+## 1. Vision 
 
 **Problème :** Les clients doivent se déplacer au cinéma pour réserver une place et il est difficile de consulter les films et les séances en temps réel.
 
@@ -29,7 +29,7 @@ Critères : valeur métier, risque, impact sur l'architecture.
 
 | Cas d'utilisation | Valeur métier | Risque | Impact architecture | Priorité |
 |---|---|---|---|---|
-| Effectuer le paiement | Haute | Haute | Haute | 1 (en premier) |
+| Effectuer le paiement | Haute | Haute | Haute | 1 |
 | Réserver une place | Haute | Moyenne | Moyenne | 2 |
 | Consulter les films | Haute | Basse | Basse | 3 |
 | Consulter les séances | Haute | Basse | Basse | 3 |
@@ -41,7 +41,7 @@ Critères : valeur métier, risque, impact sur l'architecture.
 ## 5. Plan des 3 itérations et des 4 phases
 
 ### Itération 1 (Inception + début Élaboration)
-- Rédiger la vision (5 lignes) et identifier les acteurs
+- Rédiger la vision et identifier les acteurs
 - Lister et prioriser les cas d'utilisation
 - Créer le diagramme de cas d'utilisation (PlantUML)
 - Architecture de base pour le paiement : controller -> service -> accès aux données
