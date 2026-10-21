@@ -1,21 +1,30 @@
 @startuml
-title V-Modele - Systeme de reservation de cinema
+title V-Modele 2TUP - Systeme de reservation de cinema
 
-package Developpement {
+skinparam monochrome true
+skinparam shadowing false
+left to right direction
+
+package "Branche Fonctionnelle" {
   [Vision] --> [UC]
-  [UC] --> [Architecture]
-  [Architecture] --> [Conception]
-  [Conception] --> [Implémentation]
+  [UC] --> [Specs]
+  [Specs] --> [AnalyseRisques]
 }
 
-package Validation {
-  [Tests unitaires] --> [Tests integration]
-  [Tests integration] --> [Tests systeme]
-  [Tests systeme] --> [Recette]
+package "Branche Technique" {
+  [Outils] --> [Contraintes]
+  [Contraintes] --> [Architecture]
 }
 
-[Implémentation] -[hidden]-> [Tests unitaires]
+package "Branche Milieu" {
+  [Integration] --> [ImplEtTests]
+}
 
-note left of Vision : Livrables TP1 : Vision, UC, Architecture, Tests, Revue croisee
-note right of Recette : Fusion branches : UC5-paiement et UC3-reserver-place sur main
+[AnalyseRisques] -[hidden]-> [Contraintes]
+[ImplEtTests] --> [Fusion]
+
+note left of Vision : Livrables TP1 : Vision, UC
+note right of Architecture : Livrable TP1 : Architecture
+note bottom of ImplEtTests : Livrables TP1 : Tests, Revue croisee
+note right of Fusion : Merge main : UC5-paiement + UC3-reserver-place
 @enduml
