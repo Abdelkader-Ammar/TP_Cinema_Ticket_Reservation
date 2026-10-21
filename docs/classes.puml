@@ -1,0 +1,57 @@
+@startuml
+class Film {
+  - idFilm : int
+  - titre : string
+  - duree : int
+  - genre : string
+  + consulterDetails() : string
+}
+
+class Seance {
+  - idSeance : int
+  - dateHeure : dateTime
+  - salle : string
+  + getPlacesDisponibles() : list
+}
+
+class Place {
+  - idPlace : int
+  - numero : int
+  - rangee : string
+  - estDisponible : boolean
+}
+
+class Reservation {
+  - idReservation : int
+  - dateReservation : dateTime
+  - statut : string
+  + confirmer() : void
+  + annuler() : void
+}
+
+class Client {
+  - idClient : int
+  - nom : string
+  - email : string
+  + reserverPlace() : void
+  + annulerReservation() : void
+}
+
+class Paiement {
+  - idPaiement : int
+  - montant : float
+  - statut : string
+  + effectuerPaiement() : boolean
+}
+
+class Administrateur {
+  - idAdmin : int
+  + gererSeances() : void
+}
+
+Client "1" -- "0..*" Reservation : effectue
+Reservation "1" -- "1" Paiement : inclut
+Seance "1" -- "0..*" Place : contient
+Film "1" -- "0..*" Seance : projette
+Administrateur "1" -- "0..*" Seance : gere
+@enduml

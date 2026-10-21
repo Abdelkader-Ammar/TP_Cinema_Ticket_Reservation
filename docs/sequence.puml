@@ -1,0 +1,19 @@
+@startuml
+actor Client
+participant System
+participant Seance
+participant Reservation
+participant Paiement
+
+Client -> System: consulter les séances
+System -> Seance: getPlacesDisponibles()
+Seance --> System: liste des places
+System --> Client: afficher les places disponibles
+
+Client -> System: réserver une place
+System -> Reservation: créer réservation
+Reservation -> Paiement: effectuer le paiement
+Paiement --> Reservation: confirmation paiement
+Reservation --> System: réservation confirmée
+System --> Client: confirmation réservation
+@enduml
