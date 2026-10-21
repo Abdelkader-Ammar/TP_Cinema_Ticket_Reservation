@@ -1,0 +1,27 @@
+@startuml
+skinparam monochrome true
+skinparam shadowing false
+
+title V-Modèle — Système de réservation de cinéma
+
+left to right direction
+
+rectangle "Côté Développement (descendant)" {
+  [Vision] --> [UC / Cas d'utilisation]
+  [UC / Cas d'utilisation] --> [Architecture]
+  [Architecture] --> [Conception détaillée]
+  [Conception détaillée] --> [Implémentation]
+}
+
+rectangle "Côté Validation (montant)" {
+  [Tests unitaires] --> [Tests d'intégration]
+  [Tests d'intégration] --> [Tests système]
+  [Tests système] --> [Recette / Acceptation]
+}
+
+[Implémentation] --> [Tests unitaires] : V
+
+note bottom left : Livrables déjà produits au TP1 :\n- Vision\n- UC\n- Architecture\n- Tests\n- Revue croisée
+
+note top right : Fusion des deux branches :\nfeature/UC5-paiement et feature/UC3-reserver-place\n=> merge sur main
+@enduml
